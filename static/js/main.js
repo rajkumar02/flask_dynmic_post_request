@@ -14,6 +14,7 @@ window.onscroll = () => {
     }
 };
 
+
 // Load next set of posts.
 function load() {
 

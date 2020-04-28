@@ -28,5 +28,6 @@ def posts():
     
     #Retun list of posts.
     return jsonify(data)
+
  
  

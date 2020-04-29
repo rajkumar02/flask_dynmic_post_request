@@ -14,6 +14,13 @@ window.onscroll = () => {
     }
 };
 
+//If the hidden button is clicked, delete the post
+document.addEventListener('click', event =>{
+    const element = event.target;
+    if(element.className === 'hide'){
+        element.parentElement.remove();
+    }
+});
 
 // Load next set of posts.
 function load() {
@@ -41,24 +48,29 @@ function load() {
 }
 
 // Add a new post with given contents to DOM.
+const post_template = Handelbars.compile(document.querySelector('#post').innerHTML);
 function add_post(contents) {
 
     // Create new post.
-    const post = document.createElement('div');
-    post.className = 'post';
-    post.innerHTML = contents;
+    // const post = document.createElement('div');
+    // post.className = 'post';
+    // post.innerHTML = contents;
+
+    //Create new post with handelbarsJS
+    const post = post_template({'contents': contents});
 
     //Add button to hide post.
-    const hide = document.createElement('button');
-    hide.className = 'hide';
-    hide.innerHTML = 'Hide';
-    post.append(hide);
+    // const hide = document.createElement('button');
+    // hide.className = 'hide';
+    // hide.innerHTML = 'Hide';
+    // post.append(hide);
 
     //When hide button is cliked, remove post.
-    hide.onclick = function() {
-        this.parentElement.remove();
-    };
+    // hide.onclick = function() {
+    //     this.parentElement.remove();
+    // };
 
     // Add post to DOM.
-    document.querySelector('#posts').append(post);
+    //document.querySelector('#posts').append(post);
+    document.querySelector('#posts').innerHTML += post;
 }

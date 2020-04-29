@@ -50,15 +50,14 @@ function add_post(contents) {
 
     //Add button to hide post.
     const hide = document.createElement('button');
-    post.className = 'hide';
-    post.innerHTML = 'Hide';
+    hide.className = 'hide';
+    hide.innerHTML = 'Hide';
     post.append(hide);
 
     //When hide button is cliked, remove post.
     hide.onclick = function() {
         this.parentElement.remove();
     };
-
 
     // Add post to DOM.
     document.querySelector('#posts').append(post);

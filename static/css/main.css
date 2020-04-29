@@ -1,3 +1,7 @@
+.hide {
+    float: right;
+}
+
 .post {
     background-color: #dd5800;
     padding: 20px;
